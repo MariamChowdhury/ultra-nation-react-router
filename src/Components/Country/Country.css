@@ -3,3 +3,12 @@
   margin: 2%;
   
 }
+.card-style{
+  width: 18rem;
+  border:2px solid lightgray
+  
+}
+.card-body{
+  text-align: center;
+  font-size: larger;
+}

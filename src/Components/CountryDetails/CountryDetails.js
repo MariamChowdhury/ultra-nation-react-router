@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Card } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import './CountryDetails.css'
 const CountryDetails = () => {
   let { countryName } = useParams();
   const [country, setCountry] = useState([]);
@@ -11,16 +13,20 @@ const CountryDetails = () => {
   }, [countryName]);
   return (
     <div className="text-center">
-      <h2>This is {countryName}</h2>
-      {/* {country.map((population) =>  <h4>{population.population}</h4>)
-      }
-      {
-        country.map(capital => <p>{capital.capital}</p>)
-      } */}
       {country.map((details) => (
         <div details={details}>
-          <h4>{details.capital}</h4>
-          <p>{details.population}</p>
+          <Card className="container details">
+            <Card.Body>
+              <Card.Title>
+                <h1>{countryName}</h1>
+              </Card.Title>
+              <Card.Text>
+                <h3>Capital: {details.capital}</h3>
+                <h4>Population:{details.population}</h4>
+                <p>Timezone: {details.timezones}</p>
+              </Card.Text>
+            </Card.Body>
+          </Card>
         </div>
       ))}
     </div>
